@@ -3855,3 +3855,212 @@ billiard.exceptions.RestartFreqExceeded: 5 in 1s
 [2023-09-14 02:21:53,258: INFO/MainProcess] celery@4d4a1b2fc328 ready.
 [2023-09-14 02:21:53,852: INFO/MainProcess] Task create_task[cd1b95b7-7ec8-4d07-99f1-206f0060c9a2] received
 [2023-09-14 02:22:03,863: INFO/ForkPoolWorker-1] Task create_task[cd1b95b7-7ec8-4d07-99f1-206f0060c9a2] succeeded in 10.007821999999578s: True
+[2023-09-14 04:32:24,710: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 332, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 628, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.11/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/usr/local/lib/python3.11/site-packages/amqp/connection.py", line 525, in drain_events
+    while not self.blocking_read(timeout):
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/amqp/connection.py", line 530, in blocking_read
+    frame = self.transport.read_frame()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+                   ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/amqp/transport.py", line 627, in _read
+    s = recv(n - len(rbuf))
+        ^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 104] Connection reset by peer
+[2023-09-14 04:32:24,710: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:367: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered back to the queue.
+You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss setting.
+In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2023-09-14 04:32:24,710: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds... (1/100)
+
+[2023-09-14 04:32:28,794: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 4.00 seconds... (2/100)
+
+[2023-09-14 05:02:38,842: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 6.00 seconds... (3/100)
+
+[2023-09-14 05:15:00,276: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 8.00 seconds... (4/100)
+
+[2023-09-14 05:15:10,461: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 10.00 seconds... (5/100)
+
+[2023-09-14 05:17:53,000: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 12.00 seconds... (6/100)
+
+[2023-09-14 05:18:53,856: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 14.00 seconds... (7/100)
+
+[2023-09-14 05:19:09,887: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 16.00 seconds... (8/100)
+
+[2023-09-14 05:19:27,913: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 18.00 seconds... (9/100)
+
+[2023-09-14 05:19:47,941: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 20.00 seconds... (10/100)
+
+[2023-09-14 05:20:09,980: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 22.00 seconds... (11/100)
+
+[2023-09-14 05:20:34,020: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 24.00 seconds... (12/100)
+
+[2023-09-14 05:21:00,062: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 26.00 seconds... (13/100)
+
+[2023-09-14 05:21:28,106: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 28.00 seconds... (14/100)
+
+[2023-09-14 05:21:58,144: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 30.00 seconds... (15/100)
+
+[2023-09-14 05:22:30,187: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:23:04,240: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:23:38,310: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:24:12,369: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:24:46,429: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:25:20,491: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:25:54,556: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:26:28,620: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:27:02,678: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:27:36,744: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:28:10,822: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:28:44,879: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:29:18,947: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:29:53,021: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:30:27,135: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:34:02,336: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:34:36,405: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:35:10,462: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:35:44,514: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:36:18,561: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -3] Temporary failure in name resolution.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:36:59,028: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -2] Name or service not known.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:37:32,078: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -2] Name or service not known.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:38:05,134: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -2] Name or service not known.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:38:38,182: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -2] Name or service not known.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:39:11,225: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -2] Name or service not known.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:39:44,273: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -2] Name or service not known.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:40:17,330: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno -2] Name or service not known.
+Trying again in 32.00 seconds... (16/100)
+
+[2023-09-14 05:40:55,716: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds... (1/100)
+
+[2023-09-14 05:40:57,725: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds... (2/100)
+
+[2023-09-14 05:41:01,732: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds... (3/100)
+
+[2023-09-14 05:41:07,741: ERROR/MainProcess] consumer: Cannot connect to amqp://admin:**@rabbit:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds... (4/100)
+
+[2023-09-14 05:41:15,757: INFO/MainProcess] Connected to amqp://admin:**@rabbit:5672//
+[2023-09-14 05:41:15,765: INFO/MainProcess] mingle: searching for neighbors
+[2023-09-14 05:41:16,801: INFO/MainProcess] mingle: all alone
+[2023-09-14 05:41:16,847: INFO/MainProcess] celery@401b07075e86 ready.
+[2023-09-14 05:41:43,640: INFO/MainProcess] Task create_task[80c140d4-722d-46cc-afdf-c87612d749d5] received
+[2023-09-14 05:41:53,653: INFO/ForkPoolWorker-1] Task create_task[80c140d4-722d-46cc-afdf-c87612d749d5] succeeded in 10.009739000000991s: True
+[2023-09-14 05:42:21,290: INFO/MainProcess] Task create_task[9d27619c-7eab-46e7-a8ec-7afd8b6f0ad4] received
+[2023-09-14 05:42:31,299: INFO/ForkPoolWorker-1] Task create_task[9d27619c-7eab-46e7-a8ec-7afd8b6f0ad4] succeeded in 10.00702900000033s: True
+[2023-09-14 05:44:41,321: INFO/MainProcess] Task create_task[5a78a9ed-8388-472e-9667-753ef907bebc] received
+[2023-09-14 05:45:01,327: INFO/ForkPoolWorker-1] Task create_task[5a78a9ed-8388-472e-9667-753ef907bebc] succeeded in 20.004289000004064s: True
+[2023-09-14 05:45:55,480: INFO/MainProcess] Task create_task[8d0f6338-33be-42fc-9ed5-a2cf800d3ba7] received
+[2023-09-14 05:45:56,908: INFO/MainProcess] Task create_task[0810ea8a-ce0c-479c-8ade-45f83d8ac15b] received
+[2023-09-14 05:45:57,863: INFO/MainProcess] Task create_task[a51e31c2-112c-4da0-affb-8c34e8551dec] received
+[2023-09-14 05:46:00,063: INFO/MainProcess] Task create_task[4b8fe20a-fba4-4f03-b4ba-38421e7a6675] received
+[2023-09-14 05:46:01,766: INFO/MainProcess] Task create_task[d92974be-57bd-4e5e-970d-8f8c4d31fbef] received
+[2023-09-14 05:46:02,881: INFO/MainProcess] Task create_task[f664fabe-53b7-4657-9d17-39322c3aee44] received
+[2023-09-14 05:46:05,485: INFO/ForkPoolWorker-1] Task create_task[8d0f6338-33be-42fc-9ed5-a2cf800d3ba7] succeeded in 10.003182000000379s: True
+[2023-09-14 05:46:06,919: INFO/ForkPoolWorker-2] Task create_task[0810ea8a-ce0c-479c-8ade-45f83d8ac15b] succeeded in 10.00934600000619s: True
+[2023-09-14 05:46:15,493: INFO/ForkPoolWorker-1] Task create_task[a51e31c2-112c-4da0-affb-8c34e8551dec] succeeded in 10.006324000001769s: True
+[2023-09-14 05:46:16,925: INFO/ForkPoolWorker-2] Task create_task[4b8fe20a-fba4-4f03-b4ba-38421e7a6675] succeeded in 10.003310999993118s: True
+[2023-09-14 05:46:25,500: INFO/ForkPoolWorker-1] Task create_task[d92974be-57bd-4e5e-970d-8f8c4d31fbef] succeeded in 10.005395999993198s: True
+[2023-09-14 05:46:26,933: INFO/ForkPoolWorker-2] Task create_task[f664fabe-53b7-4657-9d17-39322c3aee44] succeeded in 10.005304000005708s: True
+[2023-09-14 05:47:40,153: INFO/MainProcess] Task create_task[b9a175b6-70b0-40bd-956d-50926f0868ff] received
+[2023-09-14 05:47:50,158: INFO/ForkPoolWorker-1] Task create_task[b9a175b6-70b0-40bd-956d-50926f0868ff] succeeded in 10.003033000000869s: True
+[2023-09-14 05:49:50,368: INFO/MainProcess] Task create_task[5d9291ec-3ac4-45db-be2d-40af8e488082] received
+[2023-09-14 05:50:00,371: INFO/ForkPoolWorker-1] Task create_task[5d9291ec-3ac4-45db-be2d-40af8e488082] succeeded in 10.002089999994496s: True
+[2023-09-14 05:50:55,394: INFO/MainProcess] Connected to amqp://admin:**@rabbit:5672//
+[2023-09-14 05:50:55,417: INFO/MainProcess] mingle: searching for neighbors
+[2023-09-14 05:50:56,457: INFO/MainProcess] mingle: all alone
+[2023-09-14 05:50:56,484: INFO/MainProcess] celery@ca9d15d3532a ready.
+[2023-09-14 05:51:00,811: INFO/MainProcess] Events of group {task} enabled by remote.
+[2023-09-14 05:51:01,040: INFO/MainProcess] Task create_task[029a3bb6-993f-4f4a-83a4-6d9991c8fa34] received
+[2023-09-14 05:51:11,052: INFO/ForkPoolWorker-1] Task create_task[029a3bb6-993f-4f4a-83a4-6d9991c8fa34] succeeded in 10.006764999998268s: True
